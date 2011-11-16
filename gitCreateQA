@@ -1,0 +1,13 @@
+git checkout Prod
+git branch -D QA
+git tag -a LatestProd -m "Latest Prod"
+git push --tags
+git checkout -b QA
+echo 'Pick your branches:'
+while true; do
+	git branch -r --no-merged QA
+	read -p "Pick a branch name:" branchname
+	if [ $branchname = "q" ]; then break
+	fi
+	git merge $branchname
+done
