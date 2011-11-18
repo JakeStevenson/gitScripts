@@ -3,8 +3,14 @@ git branch -D QA
 git tag -a LatestProd -m "Latest Prod"
 git push --tags
 git checkout -b QA
-echo 'Pick your branches:'
+read -p "Ready to begin"
+clear
 while true; do
+	clear
+	echo "Already Merged:"
+	git branch -rv --merged QA
+	echo
+	echo "Waiting To Merge:"
 	git branch -rv --no-merged QA
 	read -p "Pick a branch name:" branchname
 	if [ $branchname = "q" ]; then break
