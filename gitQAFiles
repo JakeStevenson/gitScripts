@@ -1,1 +1,1 @@
-git diff LatestProd..QA --name-only
+git diff origin/Prod..QA --name-only
